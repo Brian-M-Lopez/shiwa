@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="model_tree_view" model="ir.ui.view">
+        <field name="name">model_tree.view.tree</field>
+        <field name="model">brand.model</field>
+        <field name="arch" type="xml">
+            <tree string="Models">
+                <field name="name" />
+                <field name="brand" />
+            </tree>
+        </field>
+    </record>
+    <!-- form view -->
+    <record id="model_form_view" model="ir.ui.view">
+        <field name="name">model.view.form</field>
+        <field name="model">brand.model</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="brand" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action view -->
+    <record id="model_action" model="ir.actions.act_window">
+        <field name="name">Model action</field>
+        <field name="res_model">brand.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="model_menu_item"
+        name="Model"
+        action="model_action"
+        groups="base.group_user"
+        parent="stock.menu_stock_root"
+        sequence="11"/>
+</odoo>
